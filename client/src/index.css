@@ -1,0 +1,65 @@
+*,
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+#bgText {
+  font-weight: 800;
+  font-size: 3rem;
+  background: linear-gradient(to right, rgba(118, 73, 255, 1), rgba(255, 76, 246, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.bgStepsText {
+  /* margin-top: var(--dynamic-margin-top,5rem); */
+  font-size: 2.5rem;
+  font-weight: 600;
+  background: linear-gradient(to right, rgba(53, 53, 53, 1), rgba(155, 155, 155, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+
+.sliderContainer {
+  position: relative;
+  /* margin-bottom: 2rem; */
+  margin-top: 3rem;
+  margin-inline: auto;
+
+
+}
+
+.slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  height: 100%;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  appearance: none;
+  background-image: url(./assets/slide_icon.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
