@@ -16,8 +16,11 @@ app.use(express.json())
 app.use(cors({origin:"*"}))
 
 
-app.use("/",(req,res)=>{
-    res.send("Server is working")
+app.use("/hello",(req,res)=>{
+  res.status(200).json({
+    success:true,
+    message:'hello world'
+  })
 })
 
 app.listen((port),()=>{
