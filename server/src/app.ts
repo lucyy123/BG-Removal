@@ -16,6 +16,9 @@ app.use(express.json())
 app.use(cors({origin:"*"}))
 
 
+app.use("/",(req,res)=>{
+    res.send("Server is working")
+})
 
 app.listen((port),()=>{
     console.log(`server is running on port ${port}`)
