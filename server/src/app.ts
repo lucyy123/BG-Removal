@@ -1,6 +1,6 @@
 import cors from 'cors'
 import { config } from 'dotenv'
-import express from 'express'
+import express, { Request, Response } from 'express'
 import { ConnectDB } from './utils/MongoDB'
 
 config()
@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(cors({origin:"*"}))
 
 
-app.use("/hello",(req,res)=>{
+app.use("/",(req : Request,res:Response)=>{
   res.status(200).json({
     success:true,
     message:'hello world'
