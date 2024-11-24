@@ -21,7 +21,7 @@ ConnectDB(url)
 app.use(express.json())
 app.use(cors({ origin: "*" }))
 
-
+app.use('/api/v1/user', userRoutes)
 app.use("/", (req: Request, res: Response) => {
   res.status(200).json({
     success: true,
@@ -30,7 +30,6 @@ app.use("/", (req: Request, res: Response) => {
 })
 
 //---------------- initilizing the routes----------------
-app.use('/api/v1/user', userRoutes)
 
 // ------------------- Error Middleware-----------------
 
