@@ -98,6 +98,5 @@ export const userCredits = async (req: Request, res: Response, next: NextFunctio
 
   } catch (error) {
     console.log("error:", error);
-    return next(new ErrorHanlder(404, error.message));
   }
 }
