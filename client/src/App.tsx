@@ -1,12 +1,13 @@
 import { Container } from "@mui/material";
 import { lazy, Suspense } from "react";
+import { Toaster } from "react-hot-toast";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Navbar from "./shared/Navbar";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
-import Loader from "./shared/Loader";
-import ProtectedRoutes from "./utils/ProtectedRoutes";
 import Footer from "./shared/Footer";
+import Loader from "./shared/Loader";
+import Navbar from "./shared/Navbar";
+import ProtectedRoutes from "./utils/ProtectedRoutes";
 
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Result = lazy(() => import("./pages/Result"));
@@ -28,7 +29,6 @@ const App = () => {
           >
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/result" element={<Result />} />
-
           </Route>
           {/* --------------------------------- 404 Not found page */}
           <Route path="/*" element={<ErrorPage />} />
@@ -36,10 +36,9 @@ const App = () => {
       </Suspense>
 
       <Container maxWidth={"lg"}>
-       <Footer />
+        <Footer />
       </Container>
-
-
+    <Toaster position="top-center"/>
     </Router>
   );
 };

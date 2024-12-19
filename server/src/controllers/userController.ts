@@ -26,11 +26,12 @@ export const webhooks = async (
     });
 
     const { data, type } = req.body;
+    console.log('type:', type)
 
     switch (type) {
       case "user.created": {
         const newUser = {
-          clerKDd: data.id,
+          clerkId: data.id,
           email: data.email_addresses[0].email_address,
           photo: data.image_url,
           firstName: data.first_name,
@@ -81,3 +82,22 @@ export const webhooks = async (
     return next(new ErrorHanlder(404, "Something went wrong"));
   }
 };
+
+
+
+export const userCredits = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { clerkId } = req.body;
+    const userData = await User.findById(clerkId)
+    if (!userData) return next(new ErrorHanlder(404, 'user not found'))
+
+    res.status(200).json({
+      success: true,
+      credits: userData.creditBalance
+    })
+
+  } catch (error) {
+    console.log("error:", error);
+    return next(new ErrorHanlder(404, error.message));
+  }
+}

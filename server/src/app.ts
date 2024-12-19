@@ -1,6 +1,7 @@
 import cors from 'cors'
 import { config } from 'dotenv'
 import express, { Request, Response } from 'express'
+import morgan from 'morgan'
 import { ErrorMiddleware } from './middlewares/ErrorHandler'
 import { ConnectDB } from './utils/MongoDB'
 
@@ -20,8 +21,8 @@ ConnectDB(url)
 // --------------- Middlewares---------------
 app.use(express.json())
 app.use(cors({ origin: "*" }))
-
-app.use('/api/v1/user', userRoutes)
+app.use(morgan('dev'))
+app.use("/api/user", userRoutes)
 app.use("/", (req: Request, res: Response) => {
   res.status(200).json({
     success: true,

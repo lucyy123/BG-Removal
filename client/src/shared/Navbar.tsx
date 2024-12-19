@@ -2,11 +2,14 @@ import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { ArrowRightAltOutlined } from "@mui/icons-material";
 import { Box, Button, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
+import useGetuserCredites from "../hooks/useGetUserCredits";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  useGetuserCredites()
   const { openSignIn } = useClerk();
   const { isSignedIn, user } = useUser();
-  console.log("user:", user);
+  const { credits } = useSelector((state:{userCreditsReducer:InitialStateCredits})=>state.userCreditsReducer)
 
   return (
     <Box
@@ -38,7 +41,7 @@ const Navbar = () => {
         {/* -------------------------- user name + user avatar--------------------------------- */}
 
         {isSignedIn ? (
-          <UserButton/>
+          <UserButton />
         ) : (
           <Button
             sx={{

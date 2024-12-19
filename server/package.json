@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/morgan": "^1.9.9",
     "axios": "^1.7.7",
     "concurrently": "^9.1.0",
     "cors": "^2.8.5",
@@ -19,6 +21,7 @@
     "form-data": "^4.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.2",
+    "morgan": "^1.10.0",
     "razorpay": "^2.9.5",
     "svix": "^1.41.0"
   },
